@@ -8,9 +8,15 @@ uses
 
 type
   TForm1 = class(TForm)
-    Edit1: TEdit;
-    Button1: TButton;
-    procedure Button1Click(Sender: TObject);
+    DOLAR: TEdit;
+    CONVERTER: TButton;
+    REAL: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    COMPRA: TButton;
+    MSG: TLabel;
+    procedure CONVERTERClick(Sender: TObject);
+    procedure COMPRAClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -19,19 +25,54 @@ type
 
 var
   Form1: TForm1;
-  var1 : string;
-  var2 : real;
+  varreal : real;
+  varnome : STRING;
+
+
+
+
+
+
+
+
+
+
 
 implementation
 
 {$R *.dfm}
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TForm1.COMPRAClick(Sender: TObject);
 begin
- // var1 := 'mensagem';
-  var2 := 1000.13;
-  edit1.text := floattostr (var2);
+    varnome := INPUTBOX ('Nome','Digite seu nome', '');
+
+    if (varnome <> '') and (DOLAR.Text <> '0') then
+        Msg.Caption := 'Olá ' + varnome + ', Você comprou ' + DOLAR.Text + ' Dólar(es)'
+
+    else
+        showmessage('Falta nome ou quantidade de dolares')
 end;
+
+procedure TForm1.CONVERTERClick(Sender: TObject);
+begin
+
+ if DOLAR.Text = '' then
+
+    begin
+      showmessage('DIGITE VALOR EM DOLAR');
+    end
+
+ Else
+    begin
+      COMPRA.Enabled := True;
+      varreal := strtofloat (DOLAR.Text) * 5.12;
+      REAL.Text := floattostr (varreal);
+    end;
+
+
+
+end;
+
 
 
 
