@@ -1,4 +1,4 @@
-# Formulario-Delphi
+# Conversor de moedas Delphi
 ### Projeto para entendimento da linguagem Delphi.
 
 
